@@ -50,15 +50,20 @@ export default {
     }
   },
   mounted () {
-  axios
-    .get('http://www.omdbapi.com/?s=indiana&apikey=XXXX&page=1&type=movie&Content-Type=application/json')
-    .then(response => {
-      this.wholeResponse = response.data.Search
-      this.loading = false
-    })
-    .catch(error => {
-      console.log(error)
-    })
+    axios
+      .get('http://www.omdbapi.com/?s=indiana&apikey=26df6748&page=1&type=movie&Content-Type=application/json')
+      .then(response => {
+        this.wholeResponse = response.data.Search
+        this.loading = false
+      })
+      .catch(error => {
+        console.log(error)
+      })
+  },
+  methods: {
+    singleMovie (id) {
+      this.$router.push('/movie/' + id)
+    }
   }
 }
 </script>
